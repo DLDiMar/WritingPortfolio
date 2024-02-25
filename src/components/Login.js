@@ -20,8 +20,8 @@ const Login = () => {
 
   return (
     <div className="login-container" data-testid="login-component"> {/* Apply a class for styling */}
-      <h2>Login</h2>
       <form>
+        <h2>Login</h2>
         <label>
           Username:
           <input

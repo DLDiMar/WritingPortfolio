@@ -1,8 +1,8 @@
 import React from 'react';
-import '../styles/home.css';
+import '../styles/App.css';
 
 const Home = () => (
-  <div className="container">
+  <div className="container" data-testid="home-component">
     <header>
       <h1>Welcome to My Website</h1>
     </header>

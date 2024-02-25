@@ -1,32 +1,55 @@
 /* app.css */
 /* Basic styles applicable to the entire app */
+#root {
+    width: 100vw;
+    height: 100vh;
+}
+
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f0f0f0;
+    background-color: #f1f1f1;
     color: #333;
     margin: 0;
     padding: 0;
-  }
-  
-  .header {
+}
+
+.header {
     background-color: #3498db;
     color: #fff;
-    padding: 10px;
+    padding: 5px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.container {
+    width: 100vw; 
+    height: 100vh;
+    padding: 5px;
     text-align: center;
-  }
-  
-  .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
-  .footer {
-    margin-top: 20px;
-    padding: 10px;
+}
+
+.footer {
+    margin-top: 5px;
+    padding: 5px;
     background-color: #eee;
     text-align: center;
-  }
+}
+
+/* Scrollbar Style*/
+::-webkit-scrollbar {
+    width: 16px; /* Width of the scrollbar */
+}
   
-  /* Add more foundational styles as needed */
+::-webkit-scrollbar-track {
+    background-color: rgba(109, 109, 109, 0.5); /* Half-transparent white background color of the scrollbar track */
+}
+ 
+::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent white background color of the scrollbar thumb */
+    border-radius: 4px; /* Rounded corners of the thumb */
+}
+  
+::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(255, 255, 255, 0.9); /* More opaque white background color of the scrollbar thumb on hover */
+}
   
