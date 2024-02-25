@@ -1,20 +1,25 @@
 import React, { useState } from 'react';
-//import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import '../styles/login.css'; // Import the login.css file
 
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleLogin = () => {
-    // Add your authentication logic here
-    // For example, you might make an API call to verify the credentials
-
-    // For now, let's just log the entered username and password
-    console.log(`Username: ${username}, Password: ${password}`);
+    // Simulate a successful login (replace this with your actual authentication logic)
+    if (username && password) {
+      // Redirect to the home page on successful login
+      navigate('/home');
+    } else {
+      // Handle unsuccessful login (e.g., show an error message)
+      console.error('Invalid credentials');
+    }
   };
 
   return (
-    <div>
+    <div className="login-container" data-testid="login-component"> {/* Apply a class for styling */}
       <h2>Login</h2>
       <form>
         <label>
