@@ -1,38 +1,65 @@
-/* login.css */
-#root {
+.root {
+  position: relative;
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative; /* Ensure that child elements can be positioned relative to this */
 }
 
 .background-video {
   position: fixed;
-  top: 0; /* Adjust the positioning if necessary */
-  left: 0; /* Adjust the positioning if necessary */
-  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  width: auto;
   height: auto;
-  z-index: -1; /* Ensure the video stays behind other elements */
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.header-container {
+  position: fixed;
+  top: 10%; /* Adjust top position as needed with buffer */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: large;
+  color: white;
+  padding: 10px;
+  background-color: rgba(20, 20, 20, 0.8);
+  border-radius: 4px;
+  font-family: Courier, monospace;
+  font-weight: bolder;
+  height: 7%; /* Adjust the percentage of viewport height */
+  display: flex; /* Use flexbox */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  text-align: center; /* Center the text horizontally */
+  line-height: 1; /* Set line-height to 1 for proper vertical alignment */
 }
 
 .login-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 50vh;
-  width: 70vh;
-  margin: 0 auto;
+  height: 50%; /* Adjust the percentage of viewport height */
+  max-height: 500px;
+  width: 50%; /* Adjust width as needed */
+  max-width: 300px;
   padding: 10px;
   background-color: rgba(10, 10, 10, .9);
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  flex-direction: column; /* Align children in a column */
-  color: white
+  color: white;
+  font-family: Courier, monospace;
 }
 
 h2 {
-  margin-bottom: 10px; /* Add some spacing between h2 and form */
+  margin-bottom: 15px;
 }
 
 form {
@@ -42,21 +69,20 @@ form {
   width: 100%;
 }
 
-/* Input styles */
 input {
-  width: 100%;
+  width: calc(100% - 10px); /* Adjust the input field width accordingly */
+  justify-content: center;
   padding: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 2px;
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
 }
 
-/* Button styles */
 button {
   background-color: #616161;
   color: #fff;
-  padding: 10px 20px;
+  padding: 10px 15px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -67,10 +93,51 @@ button:hover {
   background-color: #adadad;
 }
 
+.top-left-corner,
+.top-right-corner,
+.bottom-left-corner,
+.bottom-right-corner {
+  position: fixed;
+  width: 40px; /* Adjust the width of the corners */
+  height: 40px; /* Adjust the height of the corners */
+}
+
+.top-left-corner {
+  top: 15px; /* Offset from the top edge */
+  left: 15px; /* Offset from the left edge */
+  border-top: 15px solid black; /* Top side of the L */
+  border-left: 15px solid black; /* Left side of the L */
+  border-radius: 7px;
+}
+
+.top-right-corner {
+  top: 15px; /* Offset from the top edge */
+  right: 15px; /* Offset from the right edge */
+  border-top: 15px solid black; /* Top side of the L */
+  border-right: 15px solid black; /* Right side of the L */
+  border-radius: 7px;
+}
+
+.bottom-left-corner {
+  bottom: 15px; /* Offset from the bottom edge */
+  left: 15px; /* Offset from the left edge */
+  border-bottom: 15px solid black; /* Bottom side of the L */
+  border-left: 15px solid black; /* Left side of the L */
+  border-radius: 7px;
+}
+
+.bottom-right-corner {
+  bottom: 15px; /* Offset from the bottom edge */
+  right: 15px; /* Offset from the right edge */
+  border-bottom: 15px solid black; /* Bottom side of the L */
+  border-right: 15px solid black; /* Right side of the L */
+  border-radius: 7px;
+}
+
 .typing-animation {
   overflow: hidden;
   border-right: 0.15em solid rgb(41, 0, 223);
-  white-space: nowrap; /* Keep the typing animation in one line */
+  white-space: nowrap;
   margin: 0;
   letter-spacing: 0.03em;
   animation: typing 3s steps(20, end), blink-caret 0.9s step-end infinite;
@@ -78,19 +145,19 @@ button:hover {
 
 @keyframes typing {
   from {
-      width: 0;
+    width: 0;
   }
   to {
-      width: 100%;
+    width: 100%;
   }
 }
 
 @keyframes blink-caret {
   from,
   to {
-      border-color: transparent;
+    border-color: transparent;
   }
   50% {
-      border-color: rgb(35, 0, 233); /* Adjust the color based on your design */
+    border-color: rgb(35, 0, 233);
   }
 }
