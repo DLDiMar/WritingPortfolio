@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import LoginWritingPortfolioTransitions from '../assets/LPWPortfolio.mp4';
 import '../styles/login.css';
 
 const Login = () => {
@@ -45,7 +46,7 @@ const Login = () => {
       let currentIndex = 0;
 
       intervalIdRef.current = setInterval(() => {
-        if (currentIndex < (input.length - 1)) {
+        if (currentIndex < input.length - 1) {
           setTypingHeader((prev) => prev + input[currentIndex]);
           currentIndex++;
         } else {
@@ -86,33 +87,36 @@ const Login = () => {
   }, []);
 
   return (
-    <div className="login-container" data-testid="login-component">
-      <form>
-        <h2>
-          <span className="typing-animation" style={{ whiteSpace: 'pre-line' }}>{typingHeader}</span>
-        </h2>
-        <label>
-          Username:
-          <input
-            type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-        </label>
-        <br />
-        <label>
-          Password:
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </label>
-        <br />
-        <button type="button" onClick={handleLogin}>
-          Login
-        </button>
-      </form>
+    <div className='root'>
+      <video className="background-video" src={LoginWritingPortfolioTransitions} autoPlay loop muted />
+      <div className="login-container" data-testid="login-component">
+        <form>
+          <h2>
+            <span className="typing-animation" style={{ whiteSpace: 'pre-line' }}>{typingHeader}</span>
+          </h2>
+          <label>
+            Username:
+            <input
+              type="text"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+          </label>
+          <br />
+          <label>
+            Password:
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </label>
+          <br />
+          <button type="button" onClick={handleLogin}>
+            Login
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

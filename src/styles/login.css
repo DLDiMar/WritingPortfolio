@@ -1,85 +1,96 @@
 /* login.css */
 #root {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative; /* Ensure that child elements can be positioned relative to this */
+}
+
+.background-video {
+  position: fixed;
+  top: 0; /* Adjust the positioning if necessary */
+  left: 0; /* Adjust the positioning if necessary */
+  width: 100%;
+  height: auto;
+  z-index: -1; /* Ensure the video stays behind other elements */
 }
 
 .login-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 50vh;
-    width: 70vh;
-    margin: 0 auto;
-    padding: 10px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    flex-direction: column; /* Align children in a column */
-  }
-  
-  h2 {
-    margin-bottom: 10px; /* Add some spacing between h2 and form */
-  }
-  
-  form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-  }
-  
-  /* Input styles */
-  input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
-  
-  /* Button styles */
-  button {
-    background-color: #0f0f0f;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  button:hover {
-    background-color: #2980b9;
-  }
-  
-  .typing-animation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+  width: 70vh;
+  margin: 0 auto;
+  padding: 10px;
+  background-color: rgba(10, 10, 10, .9);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  flex-direction: column; /* Align children in a column */
+  color: white
+}
 
-    overflow: hidden;
-    border-right: 0.15em solid rgb(41, 0, 223);
-    white-space: normal; /* Change from nowrap to normal */
-    margin: 0;
-    letter-spacing: 0.03em;
-    animation: typing 3s steps(20, end), blink-caret 0.9s step-end infinite;
-  }
-  
-  @keyframes typing {
-    from {
+h2 {
+  margin-bottom: 10px; /* Add some spacing between h2 and form */
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* Input styles */
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* Button styles */
+button {
+  background-color: #616161;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #adadad;
+}
+
+.typing-animation {
+  overflow: hidden;
+  border-right: 0.15em solid rgb(41, 0, 223);
+  white-space: nowrap; /* Keep the typing animation in one line */
+  margin: 0;
+  letter-spacing: 0.03em;
+  animation: typing 3s steps(20, end), blink-caret 0.9s step-end infinite;
+}
+
+@keyframes typing {
+  from {
       width: 0;
-    }
-    to {
+  }
+  to {
       width: 100%;
-    }
   }
-  
-  @keyframes blink-caret {
-    from,
-    to {
+}
+
+@keyframes blink-caret {
+  from,
+  to {
       border-color: transparent;
-    }
-    50% {
-      border-color: rgb(35, 0, 233); /* Adjust the color based on your design */
-    }
   }
+  50% {
+      border-color: rgb(35, 0, 233); /* Adjust the color based on your design */
+  }
+}

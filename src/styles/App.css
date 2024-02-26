@@ -3,7 +3,7 @@
 #root {
     width: 100vw;
     height: 100vh;
-    background-color: #222222;
+    background-color: rgba(109, 109, 109, 0.1);
 }
 
 body {
