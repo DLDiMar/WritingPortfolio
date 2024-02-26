@@ -56,13 +56,13 @@
   }
   
   .typing-animation {
-    display: inline-block;
+
     overflow: hidden;
-    border-right: 0.15em solid orange; /* Adjust the color and size based on your design */
-    white-space: nowrap;
+    border-right: 0.15em solid rgb(41, 0, 223);
+    white-space: normal; /* Change from nowrap to normal */
     margin: 0;
-    letter-spacing: 0.05em; /* Adjust the spacing based on your design */
-    animation: typing 1s steps(20, end), blink-caret 0.8s step-end infinite;
+    letter-spacing: 0.03em;
+    animation: typing 3s steps(20, end), blink-caret 0.9s step-end infinite;
   }
   
   @keyframes typing {
@@ -80,6 +80,6 @@
       border-color: transparent;
     }
     50% {
-      border-color: orange; /* Adjust the color based on your design */
+      border-color: rgb(35, 0, 233); /* Adjust the color based on your design */
     }
   }

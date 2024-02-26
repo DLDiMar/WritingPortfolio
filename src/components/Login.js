@@ -6,7 +6,6 @@ const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [typingHeader, setTypingHeader] = useState('');
-  //const [typingUsername, setTypingUsername] = useState(false);
   const navigate = useNavigate();
 
   const intervalIdRef = useRef(null);
@@ -22,49 +21,69 @@ const Login = () => {
     }
   };
 
-  const typeWritingPortfolio = () => {
-    const text = "Writing Portfolio";
-    let currentIndex = 0;
-  
-    intervalIdRef.current = setInterval(() => {
-      if (currentIndex < (text.length - 1)) {
-        setTypingHeader((prev) => {
-          const updatedHeader = prev + text[currentIndex];
-          console.log("Updated Header:", updatedHeader);
-          return updatedHeader;
-        });
-        currentIndex++;
-      } else {
-        clearInterval(intervalIdRef.current);
-        setTimeout(backspaceWritingPortfolio, 1000);
-      }
-    }, 100);
+  const typeHeaderWithBackspace = (input) => {
+    return new Promise((resolve) => {
+      let currentIndex = 0;
+
+      intervalIdRef.current = setInterval(() => {
+        if (currentIndex < input.length - 1) {
+          setTypingHeader((prev) => prev + input[currentIndex]);
+          currentIndex++;
+        } else {
+          clearInterval(intervalIdRef.current);
+          setTimeout(() => {
+            backspaceHeader(input);
+            resolve(); // Resolve the promise after backspace
+          }, 1000);
+        }
+      }, 100);
+    });
   };
-  
-  const backspaceWritingPortfolio = () => {
-    let text = "Writing Portfolio";
-    let currentIndex = text.length;
-  
+
+  const typeHeaderWithoutBackspace = (input) => {
+    return new Promise((resolve) => {
+      let currentIndex = 0;
+
+      intervalIdRef.current = setInterval(() => {
+        if (currentIndex < (input.length - 1)) {
+          setTypingHeader((prev) => prev + input[currentIndex]);
+          currentIndex++;
+        } else {
+          clearInterval(intervalIdRef.current);
+          resolve(); // Resolve the promise when typing is complete
+        }
+      }, 100);
+    });
+  };
+
+  const backspaceHeader = (input) => {
+    let currentIndex = input.length;
+
     intervalIdRef.current = setInterval(() => {
       if (currentIndex > 0) {
-        setTypingHeader((prev) => {
-          const updatedHeader = prev.slice(0, currentIndex - 1);
-          console.log("Updated Header:", updatedHeader);
-          return updatedHeader;
-        });
+        setTypingHeader((prev) => prev.slice(0, currentIndex - 1));
         currentIndex--;
       } else {
         clearInterval(intervalIdRef.current);
-        setTypingHeader(''); // Clear the typingHeader after backspace
+        setTypingHeader(''); // Clear typingHeader after backspace
       }
     }, 100);
   };
-  
+
   useEffect(() => {
-    typeWritingPortfolio();
-    return () => clearInterval(intervalIdRef.current); // Clear the interval on component unmount
-  }, [/* add dependencies here if needed */]);
-  
+    const runEffects = async () => {
+      await typeHeaderWithBackspace("Wrriting Portfolio");
+      await new Promise((resolve) => setTimeout(resolve, 3000)); // Delay for 1 second
+      await typeHeaderWithoutBackspace("Loogin");
+    };
+
+    runEffects();
+
+    return () => {
+      clearInterval(intervalIdRef.current);
+      setTypingHeader(''); // Clear typingHeader on component unmount
+    };
+  }, []);
 
   return (
     <div className="login-container" data-testid="login-component">
