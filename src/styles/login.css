@@ -136,7 +136,7 @@ button:hover {
 
 .typing-animation {
   overflow: hidden;
-  border-right: 0.15em solid rgb(41, 0, 223);
+  border-right: 0.15em solid rgb(75, 75, 75);
   white-space: nowrap;
   margin: 0;
   letter-spacing: 0.03em;
@@ -158,6 +158,6 @@ button:hover {
     border-color: transparent;
   }
   50% {
-    border-color: rgb(35, 0, 233);
+    border-color: rgb(75, 75, 75);
   }
 }
