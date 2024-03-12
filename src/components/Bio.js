@@ -10,7 +10,7 @@ const Bio = () => (
             This is a little bit about Dominic. 
         </p>
         <footer>
-            &copy; 2024 Your Website
+            &copy; 2024 Fresh Juice Stuido
         </footer>
     </div>
 );
